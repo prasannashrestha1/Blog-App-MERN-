@@ -47,11 +47,49 @@ function PostDetails() {
           </div>
         </div>
         <div className="flex flex-col mt-4">
-            <h3 className="mt-6 mb-4 font-semibold ">Comments</h3>
-            {/* comment */}
-            <div className="px-2 py-2 bg-gray-200 rounded-lg">
-                
+          <h3 className="mt-6 mb-4 font-semibold ">Comments</h3>
+          {/* comment */}
+          <div className="px-2 py-2 bg-gray-200 rounded-lg my-2">
+            <div className="flex items-center justify-between">
+              <h3 className="font-bold text-gray-600">@Prasanna</h3>
+              <div className="flex justify-center items-center space-x-4">
+                <p className="text-gray-500 text-sm"> 20/13/2020</p>
+                <p className="text-gray-500 text-sm"> 16:45</p>
+                <div className="flex items-center justify-center space-x-2">
+                  <p>
+                    <BiEdit />
+                  </p>
+                  <p>
+                    <MdDelete />
+                  </p>
+                </div>
+              </div>
             </div>
+            <p className="px-4 mt-2 ">comment section</p>
+          </div>
+          <div className="px-2 py-2 bg-gray-200 rounded-lg my-2">
+            <div className="flex items-center justify-between">
+              <h3 className="font-bold text-gray-600">@Prasanna</h3>
+              <div className="flex justify-center items-center space-x-4">
+                <p className="text-gray-500 text-sm"> 20/13/2020</p>
+                <p className="text-gray-500 text-sm"> 16:45</p>
+                <div className="flex items-center justify-center space-x-2">
+                  <p>
+                    <BiEdit />
+                  </p>
+                  <p>
+                    <MdDelete />
+                  </p>
+                </div>
+              </div>
+            </div>
+            <p className="px-4 mt-2 ">comment section</p>
+          </div>
+        </div>
+        {/* Write a Comment */}
+        <div className=" w-full flex flex-col mt-4 md:flex-row rounded-sm "> 
+        <input type="text" placeholder="Write a comment" className="md:w-[80%] outline-none px-4 mt-4 p-4 md:mt-0 text-black rounded-sm " />
+        <button className=" text-white text-sm bg-black px-2 py-2 md:w-[20%] mt-4 md:mt-0">Add Comment</button>
         </div>
       </div>
       <Footer />
