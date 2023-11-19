@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const express = require('express');
 const app = express();
 const dotenv = require('dotenv')
-const authRoute = require('./routes/authRoute.js')
+const authRouter = require('./routes/authRoute.js')
 
 //database connection 
 const connectDB = async() => {
@@ -13,15 +13,12 @@ const connectDB = async() => {
         console.log(error);
     }
 }
-
-dotenv.config();
-app.use(express.json());
-app.use("api/authentication", authRoute)
-
-
-app.listen(process.env.PORT, ()=> {
-    console.log(`app is running at port ${process.env.PORT}`)
+app.listen(5000, ()=> {
+    console.log(`app is running at port 5000`)
     connectDB();
 });
 
+dotenv.config();
+app.use(express.json());
+app.use("/api/auth", authRouter)
 // middleware
