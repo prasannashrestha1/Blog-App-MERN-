@@ -3,7 +3,6 @@ const router = express.Router();
 const User = require("../models/User.js");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const dotenv = require("dotenv");
 
 //regiter
 router.post("/register", async (req, res) => {
@@ -12,7 +11,7 @@ router.post("/register", async (req, res) => {
     const hashedPassword = await bcrypt.hashSync(password, 10);
     const newUser = new User({ username, email, password: hashedPassword });
     await newUser.save();
-    res.status(201).json("User created successfully");
+    res.status(201).json(newUser);
   } catch (error) {
     res.status(500).json(error);
   }
