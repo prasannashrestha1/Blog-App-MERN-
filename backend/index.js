@@ -4,6 +4,7 @@ const app = express();
 const dotenv = require('dotenv')
 const authRouter = require('./routes/authRoute.js')
 const userRouter = require('./routes/userRoute.js')
+const postRouter = require('./routes/postRoute.js')
 
 //database connection 
 const connectDB = async() => {
@@ -23,4 +24,5 @@ dotenv.config();
 app.use(express.json());
 app.use("/api/auth", authRouter)
 app.use("/api/users", userRouter)
+app.use("/api/posts", postRouter)
 // middleware
