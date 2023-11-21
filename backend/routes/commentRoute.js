@@ -37,31 +37,10 @@ router.delete('/:id', async(req, res) => {
     }
 })
 
-
-//Get post details
-router.get('/:id', async(req, res) => {
+//Get post comments
+router.get('/post/:postId', async(req, res) => {
     try {
-    const comment = await Comment.findById(req.params.id)
-    res.status(200).json(comment)
-    } catch (error) {
-        res.status(500).json(error);
-    }
-})
-
-//Get post
-router.get('/', async(req, res) => {
-    try {
-    const comments = await Comment.find()
-    res.status(200).json(comments)
-    } catch (error) {
-        res.status(500).json(error);
-    }
-})
-
-//Get user post
-router.get('/user/:userId', async(req, res) => {
-    try {
-    const comments = await Comment.find({userId: req.params.userId});
+    const comments = await Comment.find({postId: req.params.postId});
     res.status(200).json(comments)
     } catch (error) {
         res.status(500).json(error);
