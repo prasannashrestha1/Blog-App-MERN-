@@ -4,9 +4,10 @@ const User = require('../models/User.js');
 const bcrypt = require("bcrypt");
 const Post = require("../models/Post.js");
 const Comment = require("../models/Comment.js");
+const verifyToken = require("../verifyToken.js");
 
 //create
-router.post("/create", async (req, res) => {
+router.post("/create", verifyToken, async (req, res) => {
     try {
         const newComment = new Comment(req.body);
         const savedComment = await newComment.save();
@@ -17,7 +18,7 @@ router.post("/create", async (req, res) => {
 })
 
 //update
-router.put('/:id', async(req, res) => {
+router.put('/:id', verifyToken, async(req, res) => {
     try {
         const updatedComment = await Post.findByIdAndUpdate(req.params.id, {$set:req.body}, {new:true});
         req.status(200).json(updatedComment);
@@ -28,7 +29,7 @@ router.put('/:id', async(req, res) => {
 
 
 //delete
-router.delete('/:id', async(req, res) => {
+router.delete('/:id', verifyToken, async(req, res) => {
     try {
     await Comment.findByIdAndDelete(req.params.id);
     res.status(200).json("successfully deleted comment")
